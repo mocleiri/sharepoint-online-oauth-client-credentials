@@ -73,6 +73,13 @@ http://sharepoint/content/sitecollection/web
 
 # OData Webservice Data
 
+In order to access the Sharepoint online Webservices we need to get an oauth JWT token which is then
+passed as an *Authorization: Bearer << JWT >>* on API requests.
+
+The client_id, client_secret and resource used to retrieve the JWT token can be determined below.
+
+Once determined follow the [Setup](Setup.md) Instructions.
+
 ```http request
 GET https://mycompany.sharepoint.com/_vti_bin/client.svc
 Authorization: Bearer
@@ -86,11 +93,14 @@ But amongst the output will be the WWW-Authenticate response header which contai
 WWW-Authenticate: Bearer realm="11111111-2222-2222-3333-333333333333",client_id="11111111-1111-1111-1111-12345678900",trusted_issuers="00000000-0000-0000-0000-000000000000@*,11111111-1111-1111-1111-111111111111@*,https://sts.windows.net/*/,0000000-0000-0000-0000-000000000000@11111111-1111-1111-1111-111111111111",authorization_uri="https://login.windows.net/common/oauth2/authorize"
 ```
 
-Extract <<beader realm>> and <<client_id>> which we will call the <<header client id>>
+Extract << bearer realm >> and << client_id >> which we will call the << header client id >>
 
 # Resource
 
-The resource is composed of the:
+The resource is a hybrid which is composed of:
+* header client id
+* sharepoint domain
+* bearer realm
 
 ```
 <<header client id>>/<<sharepoint domain>>@<<bearer realm>>
@@ -100,6 +110,10 @@ The resource is composed of the:
 
 # client_id
 
+The client_id is a hybrid which is composed of:
+* client id from the app registration.
+* application domain from the app registration.
+* bearer realm
 ```
 <<client id from app registration>>/<<app domain>>@<<bearer realm>>
 AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA/localhost@11111111-2222-2222-3333-333333333333
@@ -107,6 +121,7 @@ AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA/localhost@11111111-2222-2222-3333-333333333
 
 # client_secret
 
+The client secret is exactly what was generated or set during app registration.
 ```
 << client secret from app registration >>
 QSBjbGllbnQgc2VjcmV0IHdvdWxkIGJlIGhlcmUgaW4gcmVhbCBsaWZl
