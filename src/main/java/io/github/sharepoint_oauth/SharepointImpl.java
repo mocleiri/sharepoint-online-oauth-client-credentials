@@ -1,12 +1,13 @@
 package io.github.sharepoint_oauth;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.time.FastDateFormat;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.JsonProcessingException;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.*;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
@@ -27,13 +28,13 @@ public class SharepointImpl implements SharepointAPI {
 
     private static Logger log = LoggerFactory.getLogger(SharepointImpl.class);
 
-    @Resource(name = "sharepointClientId")
+    @Value("${sharepoint-client-id}")
     private String clientId;
 
-    @Resource(name = "sharepointClientSecret")
+    @Value("${sharepoint-client-secret}")
     private String clientSecret;
 
-    @Resource(name = "sharepointResource")
+    @Value("${sharepoint-resource}")
     private String resource;
 
     private String sharepointBaseUrl;
@@ -170,9 +171,6 @@ public class SharepointImpl implements SharepointAPI {
 
             this.accessToken = accessToken;
 
-        }
-        catch (JsonProcessingException e) {
-            throw new RuntimeException("failed to process oauth json payload = " + response.getBody(), e);
         } catch (IOException e) {
             throw new RuntimeException("failed to process oauth json payload = " + response.getBody(), e);
         }
