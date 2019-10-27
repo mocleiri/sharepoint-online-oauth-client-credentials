@@ -2,12 +2,13 @@ package io.github.sharepoint_oauth.ws.impl;
 
 import io.github.sharepoint_oauth.ws.SharepointWS;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import javax.ws.rs.core.Response;
 import java.io.InputStream;
 
-@Component
+@Component("sharepoint-ws")
 public class SharepointWSImpl implements SharepointWS {
     @Override
     public Response createFile(String subdirectory, InputStream uploadedInputStream, FormDataContentDisposition fileDetails) {

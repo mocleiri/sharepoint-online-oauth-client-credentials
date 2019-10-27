@@ -1,5 +1,6 @@
 package io.github.sharepoint_oauth.application;
 
+import io.github.sharepoint_oauth.jersey.RestConfig;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
