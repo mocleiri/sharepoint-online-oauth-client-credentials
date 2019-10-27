@@ -1,0 +1,15 @@
+POST http://localhost:8080/rest/sharepoint/getFile
+Content-Type: multipart/form-data; boundary=---------------------------9051914041544843365972754266
+
+---------------------------9051914041544843365972754266
+Content-Disposition: form-data; name="text"
+
+text default
+---------------------------9051914041544843365972754266
+
+###
+GET http://localhost:8080/rest/sharepoint/getFile&subdirectory=a%2Fb%2Fc%2Fd&file=testFile.dat
+
+###
+
+

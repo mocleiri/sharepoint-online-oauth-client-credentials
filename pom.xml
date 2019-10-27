@@ -9,13 +9,20 @@
   <version>1.0-SNAPSHOT</version>
 
   <name>sharepoint-oauth</name>
+
+  <parent>
+    <artifactId>spring-boot-starter-jersey</artifactId>
+    <groupId>org.springframework.boot</groupId>
+    <version>2.2.0.RELEASE</version>
+  </parent>
+
   <!-- FIXME change it to the project's website -->
   <url>https://github.com/mocleiri/sharepoint-online-oauth-client-credentials</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>1.11</maven.compiler.source>
+    <maven.compiler.target>1.11</maven.compiler.target>
   </properties>
 
   <dependencies>
@@ -30,16 +37,6 @@
       <artifactId>slf4j-simple</artifactId>
       <version>1.7.26</version>
       <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-web</artifactId>
-      <version>5.1.8.RELEASE</version>
-    </dependency>
-    <dependency>
-    <groupId>org.springframework</groupId>
-    <artifactId>spring-context</artifactId>
-    <version>5.1.8.RELEASE</version>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -60,6 +57,16 @@
       <groupId>org.codehaus.jackson</groupId>
       <artifactId>jackson-mapper-asl</artifactId>
       <version>1.9.13</version>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jersey.media</groupId>
+      <artifactId>jersey-media-multipart</artifactId>
+      <version>2.29.1</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>4.0.1</version>
     </dependency>
   </dependencies>
 
