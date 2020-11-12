@@ -33,8 +33,9 @@ https://mycompany.sharepoint.com/sites/my-site/_layouts/15/AppRegNew.aspx.
 ** write down - used in client_id below
 * Click on Client Secret - Generate
 ** write down - used in client secret below
+* Enter a value for the Title field.
 * Enter **localhost** for App Domain (used in client_id below)
-* Redirect URI is not needed since this is setting up a server to server authorization. 
+* Redirect URI is not needed but a value is.  Enter **https://localhost**
 * Click on the **CREATE** button to create the registration.
 
 From here we can get the <<client id>>, the <<client secret>> and the <<app domain>>.
